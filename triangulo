@@ -12,18 +12,18 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-public class CalcularAreaTriangulo extends JFrame implements ActionListener{
+public class Calcular_Area_Triangulo extends JFrame implements ActionListener {
+    
         JLabel jlAreaDaBase, jlAltura , jlTitulo;
         JTextField jtfAltura, jtfArea, jtfBase ;
         JButton  jbCalcular;
         
-        public CalcularAreaTriangulo() {
+    public Calcular_Area_Triangulo() {
         
             setLayout(new FlowLayout()) ;
             jlTitulo = new JLabel("CALCULADORA DE TRIANGULOS\n");
             add(jlTitulo);
-            
-            
+                      
             
             jlAltura = new JLabel("Altura");
             add(jlAltura);
@@ -38,35 +38,34 @@ public class CalcularAreaTriangulo extends JFrame implements ActionListener{
             add(jtfBase);
             
             jtfArea = new JTextField(10);
+            jtfArea.setEditable(false);
             jtfArea.addActionListener(this);
             add(jtfArea);
             
-            setSize(800, 600);
+            setSize(200, 150);
             setTitle("Calculadora de Triangulo");
             setVisible(true);
          
             jbCalcular = new JButton("CALCULAR");
             add(jbCalcular);
             jbCalcular.setEnabled(true);
-            jbCalcular.setActionListener(this);
+            jbCalcular.addActionListener(this);
             
         }
-    
-    
-    
-    
-    
-    
-    
-    
-    public static void main(String[] args) {
-        CalcularAreaTriangulo calc = new CalcularAreaTriangulo();
-        calc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        public static void main(String[] args) {
+            Calcular_Area_Triangulo calc = new Calcular_Area_Triangulo();
+            calc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void actionPerformed(ActionEvent ae) {
+      if (ae.getSource()== jbCalcular){
+            double base = Double.parseDouble(jtfBase.getText());
+            double altura = Double.parseDouble(jtfAltura.getText());
+            double res = (base * altura)/2;
+            jtfArea.setText(Double.toString(res));   
+      
     }
     
 }
