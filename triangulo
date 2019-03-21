@@ -1,0 +1,72 @@
+package calcular_area_triangulo;
+
+import com.sun.prism.j2d.J2DPipeline;
+import java.awt.FlowLayout;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.*;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener; 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
+public class CalcularAreaTriangulo extends JFrame implements ActionListener{
+        JLabel jlAreaDaBase, jlAltura , jlTitulo;
+        JTextField jtfAltura, jtfArea, jtfBase ;
+        JButton  jbCalcular;
+        
+        public CalcularAreaTriangulo() {
+        
+            setLayout(new FlowLayout()) ;
+            jlTitulo = new JLabel("CALCULADORA DE TRIANGULOS\n");
+            add(jlTitulo);
+            
+            
+            
+            jlAltura = new JLabel("Altura");
+            add(jlAltura);
+            jtfAltura = new JTextField(4);
+            jtfAltura.addActionListener(this);
+            add(jtfAltura);
+            
+            jlAreaDaBase = new JLabel("Base");
+            add(jlAreaDaBase);
+            jtfBase = new JTextField(4);
+            jtfBase.addActionListener(this);
+            add(jtfBase);
+            
+            jtfArea = new JTextField(10);
+            jtfArea.addActionListener(this);
+            add(jtfArea);
+            
+            setSize(800, 600);
+            setTitle("Calculadora de Triangulo");
+            setVisible(true);
+         
+            jbCalcular = new JButton("CALCULAR");
+            add(jbCalcular);
+            jbCalcular.setEnabled(true);
+            jbCalcular.setActionListener(this);
+            
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    public static void main(String[] args) {
+        CalcularAreaTriangulo calc = new CalcularAreaTriangulo();
+        calc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+}
