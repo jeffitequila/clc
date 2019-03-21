@@ -50,25 +50,26 @@ public class Calculadora extends JFrame implements ActionListener{
             add(jtfRes);
             
             //Criando os botões
+            //Botão de soma      
             jbSoma = new JButton("SOMA");
             add(jbSoma);
             jbSoma.setEnabled(true);
             jbSoma.addActionListener(this);
-           
+            //Botão de subtração
             jbSubtração = new JButton("SUBTRAÇÃO");
             add(jbSubtração);
             jbSubtração.setEnabled(true);
             jbSubtração.addActionListener(this);
-
+            //Botão de multiplicação
             jbMultiplicacao = new JButton("MUlTIPLICAÇÃO");
             add(jbMultiplicacao);
             jbMultiplicacao.setEnabled(true);
             jbMultiplicacao.addActionListener(this);
-
-            jbSoma = new JButton("DIVISÃO");
-            add(jbSoma);
-            jbSoma.setEnabled(true);
-            jbSoma.addActionListener(this);
+            //Botão de Divisão 
+            jbDivisão = new JButton("DIVISÃO");
+            add(jbDivisão);
+            jbDivisão.setEnabled(true);
+            jbDivisão.addActionListener(this);
 
             
     }
@@ -81,12 +82,33 @@ public class Calculadora extends JFrame implements ActionListener{
     }
 
     @Override
+    
     public void actionPerformed(ActionEvent ae) {
+    //Função que soma
+        if (ae.getSource()== jbSoma ){
         int num1 = Integer.parseInt(jtfN1.getText());
         int num2 = Integer.parseInt(jtfN2.getText());
         int res = num1 + num2;
         jtfRes.setText(Integer.toString(res));
-        
+        //Função que Subtrai
+        }else if (ae.getSource()== jbSubtração ){
+        int num1 = Integer.parseInt(jtfN1.getText());
+        int num2 = Integer.parseInt(jtfN2.getText());
+        int res = num1 - num2;
+        jtfRes.setText(Integer.toString(res));
+            //Função que Multiplica
+        }else if (ae.getSource()== jbMultiplicacao){
+        int num1 = Integer.parseInt(jtfN1.getText());
+        int num2 = Integer.parseInt(jtfN2.getText());
+        int res = num1 * num2;
+        jtfRes.setText(Integer.toString(res));
+            //Função que Divide
+        }else if (ae.getSource() == jbDivisão){
+        int num1 = Integer.parseInt(jtfN1.getText());
+        int num2 = Integer.parseInt(jtfN2.getText());
+        double res = num1 / num2;
+        jtfRes.setText(Double.toString(res));
+        }
     }
     }
     
