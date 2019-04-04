@@ -21,38 +21,46 @@ public class Jeff extends JFrame implements ActionListener {
     JButton jblimpar;
     JButton jbsair;
     JButton jbexecutar;
-    JComboBox jcestado, jccidade, jcprofissao ;
+    JComboBox jcestado, jccidade, jcprofissao ,jcbairro;
     
     
         public Jeff(){
             setLayout(new FlowLayout());
+            
+            //CRIANDO JLABEL PARA DIZER O O NOME
             jlnome = new JLabel("informe seu nome: ");
             add(jlnome);
             tfNome= new JTextField(20);
             tfNome.addActionListener(this);
             add(tfNome);
-            tfNome.setToolTipText(" entre com seu nome ");/*
-            quando mouse esta em cima 
-            */
-            jlbairro = new JLabel("informe seu bairro");
-            add(jlbairro);
+            tfNome.setToolTipText(" entre com seu nome ");
             
-            tfbairro = new JTextField(20);
-            add(tfbairro);
-            tfbairro.setToolTipText("entre com seu bairro");
+            //CRIANDO O INFORMADOR DE ESTADO
             
-            String estado [] = {" "," MA"," PARÁ"};
+            
+            String estado [] = {" ","AC", "AL","AP","AM", "BA","CE", "DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","SE","TO"};
             jcestado = new JComboBox (estado);
+           jcestado.addActionListener(this);
             add(jcestado);
             jcestado.setToolTipText(" ESCOLHA SEU ESTADO");
-             String cidade [] = {" "," IMPEROSA ", " PARAGOMINAS "};
+             
+            //CRIANDO O INFORMADOR DE CIDADE
+            String cidade [] = {" "};
              jccidade = new JComboBox( cidade );
              add(jccidade);
              jccidade.setToolTipText("ESCOLHA SUA CIDADE");
              
+             //CRIANDO O INDORMADO DE PESO
              jlpeso = new JLabel(" informe seu peso");
-             add(jlpeso);
              
+             //COMBOBOX DE BAIRRO
+             jcbairro = new JComboBox(bairro);
+             jcbairro.addActionListener(this);
+             add(jcbairro);
+             jcbairro.setToolTipText("ESCOLHA SEU BAIRRO");
+             
+             //JLABEL DE PESO
+             add(jlpeso);
              tfpeso  =  new JTextField(5);
              add(tfpeso);
              
@@ -115,7 +123,39 @@ public class Jeff extends JFrame implements ActionListener {
         } else if (ae.getSource()==jbexecutar){
             JOptionPane.showMessageDialog(null,"SEUS DADOS FORAM GRAVADOS ");
           
-        } 
+        } else if (ae.getSource() == jcestado){
+            if (jcestado.getSelectedIndex() == 0){
+            
+                String estado [] = {""};
+                jccidade.removeAllItems();
+                jccidade.insertItemAt(estado[0],0);
+            
+            }else if( jcestado.getSelectedIndex() == 10){
+            
+                String [] ma = {"", "Imperatriz", "Açaolandia","São Luiz"};
+                jccidade.removeAllItems();
+                for (int i = 0 ; i< 3 ; i++) {
+                    
+                    jccidade.insertItemAt(ma[i], i);}
+                    
+            }else if (jcestado.getSelectedIndex() == 14){
+            
+                String [] pa = {"", "MARABA","PARAGOMINAS"};
+                jccidade.removeAllItems();
+                for(int i = 0; i<3; i++){
+                    
+                    jccidade.insertItemAt(pa[i], i);
+                    
+                }    
+            
+            }
+                
+            }
+            
+            }
+        
+        
+        }
     }     
     
 }
